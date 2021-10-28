@@ -23,6 +23,7 @@ class UzuriApplicationTests {
     void contextLoads() {
     }
 
+    @Test
     public void connectionToDatabase() {
         String url = "jdbc:mysql//localhost.3306/lms_db";
         String userName = "lms_user/";
@@ -33,6 +34,7 @@ class UzuriApplicationTests {
         try {
             connection = dataSource.getConnection();
             assertThat(connection).isNotNull();
+            assertThat(connection.getCatalog()).isEqualTo("lms_db");
         } catch (SQLException e) {
             log.info("An exception occured -> {}", e.getMessage());
         }
