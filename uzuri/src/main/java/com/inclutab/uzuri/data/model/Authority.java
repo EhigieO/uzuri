@@ -1,12 +1,14 @@
 package com.inclutab.uzuri.data.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Authority {
     @Id
     @GeneratedValue
@@ -15,4 +17,8 @@ public class Authority {
     private LearningParty user;
     @Enumerated(EnumType.STRING)
     private Role authority;
+
+    public Authority(Role role) {
+        authority = role;
+    }
 }

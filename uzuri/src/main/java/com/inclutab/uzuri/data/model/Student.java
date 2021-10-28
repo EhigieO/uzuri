@@ -24,5 +24,5 @@ public class Student {
     private LearningParty learningParty;
     @ManyToMany
     @JoinTable
-    private List<Course> courses;
+    private List<Course> enrolledCourses;
 }
